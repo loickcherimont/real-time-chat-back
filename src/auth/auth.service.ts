@@ -26,4 +26,13 @@ export class AuthService {
         const newUser = new this.userModel({ username, password: hashedPassword });
         return newUser.save();
     }
+
+    async validateUser(username: string, password: string): Promise<any> {
+        const user = await this.userModel.findOne(username);
+        if(user && user.password === password) {
+            const { password, ...result } = user;
+            return result;
+        }
+        return null;
+    }
 }
