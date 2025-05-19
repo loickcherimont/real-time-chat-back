@@ -16,7 +16,7 @@ import { User, UserSchema } from './schemas/user.schema';
   imports: [
     MongooseModule.forRoot('mongodb+srv://loickcherimont:test123@cluster0.rktks.mongodb.net/chat?retryWrites=true&w=majority&appName=Cluster0'),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
-    AuthModule
-  ]
+    AuthModule,
+  ],
 })
 export class AppModule {}
